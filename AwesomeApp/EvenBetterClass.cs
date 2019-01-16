@@ -11,19 +11,19 @@ namespace AwesomeApp
         static int baseCnt = 0;
         public string Sex;
         public string Usr;
-        public EvenBetterClass()
+        public EvenBetterClass() : base("rabarbar","emancypator")
         {
-            
+
             baseCnt++;
             Console.WriteLine("EvenBetterClass constructor");
-            System.Diagnostics.Debug.Print($"EvenBetterClass constructor {baseCnt}");
+            //System.Diagnostics.Debug.Print($"EvenBetterClass constructor {baseCnt}");
         }
 
         ~EvenBetterClass()
         {
             baseCnt++;
             Console.WriteLine("EvenBetterClass constructor");
-            System.Diagnostics.Debug.Print($"EvenBetterClass constructor {baseCnt}");
+            //System.Diagnostics.Debug.Print($"EvenBetterClass constructor {baseCnt}");
         }
 
         void SetEvenBetterClass(string usr, string pwd, uint port, string sex)
@@ -40,6 +40,11 @@ namespace AwesomeApp
                 Console.WriteLine($"EvenBetterClass StaticClass {d[i]}");
                 d[i]++;
             }
+        }
+
+        public static void StaticClass(string r)
+        {
+            Console.WriteLine($"EvenBetterClass {r} {baseCnt}");
         }
 
 

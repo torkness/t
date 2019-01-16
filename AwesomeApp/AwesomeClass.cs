@@ -24,13 +24,21 @@ namespace AwesomeApp
         public AwesomeClass()
         {
             Console.WriteLine("AwesomeClass constructor");
-            System.Diagnostics.Debug.Print($"AwesomeClass constructor {baseCnt}");
+            //System.Diagnostics.Debug.Print($"AwesomeClass constructor {baseCnt}");
             usr = "";
             pwd = "";
             port = 0;
             baseCnt++;
         }
-
+        public AwesomeClass(string usr, string pwd)
+        {
+            Console.WriteLine("AwesomeClass custom constructor");
+            //System.Diagnostics.Debug.Print($"AwesomeClass constructor {baseCnt}");
+            this.usr = usr;
+            this.pwd = pwd;
+            port = 0;
+            baseCnt++;
+        }
         ~AwesomeClass()
         {
             
@@ -55,7 +63,7 @@ namespace AwesomeApp
 
         public static void StaticClass(string r)
         {
-            Console.WriteLine($"{r} {baseCnt}");
+            Console.WriteLine($"AwesomeClass {r} {baseCnt}");
         }
 
             
