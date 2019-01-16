@@ -7,12 +7,36 @@ namespace AwesomeApp
         private string pwd;
         private uint port;
 
+        public string Usr
+        {
+            get
+            {
+               return this.usr;
+            }
+            set
+            {
+                this.usr = value;
+            }
+        }
+
+        static int baseCnt = 0;
+
         public AwesomeClass()
         {
             Console.WriteLine("AwesomeClass constructor");
+            System.Diagnostics.Debug.Print($"AwesomeClass constructor {baseCnt}");
             usr = "";
             pwd = "";
             port = 0;
+            baseCnt++;
+        }
+
+        ~AwesomeClass()
+        {
+            
+            baseCnt--;
+            Console.WriteLine($"AwesomeClass destructor {baseCnt}");
+            System.Diagnostics.Debug.Print($"AwesomeClass destructor {baseCnt}");
         }
 
         public void SetAwesomeClass(string usr, string pwd, uint port)
@@ -22,5 +46,18 @@ namespace AwesomeApp
             this.pwd = pwd;
             this.port = port;
         }
+
+        public void readData()
+        {
+            Console.WriteLine($"readData_AwesomeClass \n {this.usr} \n {this.pwd} \n {this.port}");
+
+        }
+
+        public static void StaticClass(string r)
+        {
+            Console.WriteLine($"{r} {baseCnt}");
+        }
+
+            
     }
 }
