@@ -1,7 +1,7 @@
 ﻿using System;
 namespace AwesomeApp
 {
-    public class AwesomeClass
+    public partial class AwesomeClass
     {
         private string usr;
         private string pwd;

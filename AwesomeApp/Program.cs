@@ -1,4 +1,5 @@
 using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,8 +12,8 @@ namespace AwesomeApp
         static void Main(string[] args)
         {
             //StructVsClass();
-            Inheritance();
-
+            //Inheritance();
+            TestFileWriter("SafeText", FileWriter.Text);
 
         }
 
@@ -43,14 +44,39 @@ namespace AwesomeApp
             Console.WriteLine($"eS2:i={eS2.i};s={eS2.s}");
             Console.WriteLine($"-----------V-----------");
         }
+        private static void TestFileWriter(string text, FileWriter fw, string path = "/Users/dawidpogorzelski/Desktop/folder")
+        {
 
+            FileStream fs = File.OpenWrite(path);
+
+            switch (fw)
+            {
+                case FileWriter.Binary:
+                    Console.WriteLine("Bin");
+                    break;
+                case FileWriter.Text:
+                    Console.WriteLine("Text");
+                    StreamWriter sW = new StreamWriter(fs);
+                    sW.WriteLine(text);
+                    sW.Close();
+                    break;
+                default:
+                    Console.WriteLine("Text");
+                    break;
+            }
+
+
+            
+
+        }
         private static void Inheritance()
         {
             Console.WriteLine($"-----Inheritance-----");
 
             AwesomeClass aC = new AwesomeClass();
             EvenBetterClass eBC = new EvenBetterClass();
-
+            aC.Elo_From_The_Other_Side();
+            eBC.Elo_From_The_Other_Side();
             AwesomeClass.StaticClass("AC");
             EvenBetterClass.StaticClass("EBC");
 
@@ -135,5 +161,7 @@ namespace AwesomeApp
             }
             Console.WriteLine("\n\n\n");
         }
+
+        private enum FileWriter {Binary, Text }
     }
 }
